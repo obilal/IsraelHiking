@@ -8,6 +8,7 @@
 
 // History:
 // --------
+// 2014-04-14: Moved parking to areas, added bridge and tunnels, removed shields from roundabouts
 // 2013-06-21: Fixed a bug regarding multi tags in one POI, moved most of the labels to one place
 // 2013-05-18: Added Cliffs, gates, blue border to lakes, fence and wall, water tower
 // 2013-05-15: Icon moved to a separate folder, reduced some density by moving text to zoom 15, added scrub areas
@@ -33,6 +34,7 @@
 // riding directions in bike trails
 // pools
 // farmland/farmyard
+// waterfalls
 
 features
 	points, areas
@@ -41,6 +43,7 @@ features
 		synagogue worship: amenity=place_of_worship AND (religion=jewish OR religion=Jewish)
 		bahai worship: amenity=place_of_worship AND (religion=bahai OR religion=Bahai)
 		railway station : railway=station
+		parking : amenity=parking
 		power tower : @isOneOf(power, tower, station, sub_station)
 		legend : @isOneOf(legend, header, background, area_missing)
 		// text for point/area is used in order to group all the text rendering into one place and to avoid multiple labels.
@@ -54,7 +57,6 @@ features
 		water well : man_made=water_well
 		water cistern : man_made=cistern
 		picnic : @isOneOf(leisure, picnic, picnic_table) OR tourism=picnic_site
-		parking : amenity=parking
 		camp site : tourism=camp_site
 		view : tourism=viewpoint
 		ruins : historic=ruins
