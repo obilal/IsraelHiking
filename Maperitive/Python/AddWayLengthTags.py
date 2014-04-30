@@ -7,8 +7,6 @@ import math
 import sys
 import string
 
-sFileName = 'Cache\Forests.osm'
-
 #this function calculates the distance between two nodes
 def getLength(node1, node2):
 	return getLength4(node1.location.x, node1.location.y, node2.location.x, node2.location.y)
@@ -27,18 +25,16 @@ def getLength4(startx, starty, endx, endy):
 		length = disty
 	elif disty == 0 :
 		length = distx
-	else:
+	else :
 		length = math.sqrt((distx*distx)+(disty*disty))
 	if length < 0 :
 		length = - length
 	return length
 
-App.log('script-dir: ' + App.script_dir)
-App.run_command('change-dir dir="' + App.script_dir +'"')
-
 App.collect_garbage()
 
 # Create an osm file with forest name info
+sFileName = 'Cache\Forests.osm'
 osmFile = open(sFileName, 'w')
 iId = 0
 # writing osm header
