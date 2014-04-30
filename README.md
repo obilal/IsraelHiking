@@ -43,6 +43,7 @@ Maperitive runs on Windows, Linux and MAC.
     * The folder in the zip file are a subset of the folders exist in Maperitive installation folder. when copying some file might be duplicate, it is OK to overwrite them.
 4. Download [OSM Data for the region](http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf) and place it in the Cache folder.
 5. Open Maperitive program, click _File &rarr; Run Script_ ... and choose _Scripts\IsraelHiking.mscript_
+5. Open Maperitive program, click _Tools &rarr; Generate Tiles_
 
 This should generate 256x256 png tile files inside Tiles directory and should take long (about 3 hours or more, I prefer to do it overnight, but you need to make sure you don't get out of memory).
 
