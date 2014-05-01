@@ -1,12 +1,22 @@
 from maperipy import App
 import time
 import os
+import urllib
 
 mobileAtlasCreatorPath = 'D:\Mobile Atlas Creator'
 startPath = os.path.abspath(App.script_dir + '\..\\')
 App.log('script-dir: ' + App.script_dir)
 App.log('change-dir dir="' + startPath + '"')
 App.run_command('change-dir dir="' + startPath + '"')
+
+App.log('=== downloading if needed israel-and-palestine-latest.osm.pbf ===')
+localFile = os.path.abspath(startPath + '\cache\israel-and-palestine-latest.osm.pbf')
+remoteFile = 'http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf'
+urllibobject = urllib.urlopen("http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf")
+if os.path.isfile(localFile) == 0 or urllibobject.info()['Content-Length'] != str(os.stat(localFile).st_size) :
+	urllib.urlretrieve(remoteFile, localFile)
+	App.log('=== download complete ===')
+
 App.run_command("run-script file=Scripts\IsraelHiking.mscript")
 
 sitePath = os.path.abspath(startPath + '\..\Site')
