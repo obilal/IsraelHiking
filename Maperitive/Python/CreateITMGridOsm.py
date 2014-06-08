@@ -20,7 +20,7 @@ iGridStartE = 100000
 iGridEndE = 300000
 iGridStep = 1000
 
-sFileName = 'IsraelHiking\ITMGrid.osm'
+sFileName = 'Cache\ITMGrid.osm'
 
 # WGS84 Data
 WGS84_a = 6378137.0                     # Equatorial earth radius
