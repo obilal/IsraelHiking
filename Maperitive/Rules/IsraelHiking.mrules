@@ -8,7 +8,12 @@
 
 // History:
 // --------
+// 2014-06-07: Added Area A, Area B, and Haifa Wadis Trail
+// 2014-05-23: Added fuel stations, regional trails on one side, changed to "glow" icons, refined text size, contour emphasis
 // 2014-04-14: Moved parking to areas, added bridge and tunnels, removed shields from roundabouts
+// 2014-02-14: Show short primary roads at zoom 14 and up
+// 2013-08-03: Show forest labels according to the forest's size
+// 2013-08-02: whitespace cleanup
 // 2013-06-21: Fixed a bug regarding multi tags in one POI, moved most of the labels to one place
 // 2013-05-18: Added Cliffs, gates, blue border to lakes, fence and wall, water tower
 // 2013-05-15: Icon moved to a separate folder, reduced some density by moving text to zoom 15, added scrub areas
@@ -49,6 +54,7 @@ features
 		// text for point/area is used in order to group all the text rendering into one place and to avoid multiple labels.
 		POI text : natural=peak OR natural=spring OR man_made=water_well OR man_made=cistern OR @isOneOf(leisure, picnic, picnic_table) OR tourism=picnic_site OR amenity=parking OR tourism=camp_site OR tourism=viewpoint OR historic=ruins OR historic=archaeological_site OR historic=memorial OR natural=cave_entrance OR legend=point_missing OR railway=station OR amenity=place_of_worship OR historic=monument
 		forest label: (landuse=forest OR natural=wood) AND length
+		fuel: amenity=fuel
 
 	points
 		place : place OR landuse=farmyard
@@ -80,6 +86,7 @@ features
 		hiking regional jerusalem trail: relation[network = rwn @isMatch(name:en,"Jerusalem Trail")]
 		hiking regional northern galilee trail: relation[network = rwn @isMatch(name:en,"Northern Galilee Regional Trail")]
 		hiking regional coast to coast: relation[network = rwn @isMatch(name:en,"Coast to Coast")]
+		hiking regional haifa wadis: relation[network = rwn @isMatch(int_name,"Haifa Wadis Trail")]
 		hiking national: relation[network = nwn]
 
 		cycle path : highway=cycleway OR (highway=path AND bicycle=designated)
@@ -118,6 +125,8 @@ features
 		plantation : @isOneOf(landuse, orchard, vineyard)
 		farm : @isOneOf(landuse, farmland, farmyard)
 		residential : landuse=residential
+		Area A : relation[boundary=administrative AND admin_level=3 AND name="Area A"]
+		Area B : relation[boundary=administrative AND admin_level=3 AND name="Area B"]
 
 properties
 	// curved : true
@@ -200,7 +209,7 @@ rules
 	target : picnic
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_picnic.p.32.png
+			icon-image : icons/SJJB/png/tourist_picnic.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
@@ -208,48 +217,55 @@ rules
 		define
 			min-zoom : 15
 			icon-image : icons/SJJB/png/transport_parking.n.32.png
-			icon-width : 16
+			icon-width : 14
+		draw : icon
+
+	target : fuel
+		define
+			min-zoom : 15
+			icon-image : israelhiking/icons/SJJB/transport_fuel.glow.32.png
+			icon-width : 24
 		draw : icon
 
 	target : camp site
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/accommodation_camping.p.32.png
+			icon-image : icons/SJJB/png/accommodation_camping.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : view
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_view_point.p.32.png
+			icon-image : icons/SJJB/png/tourist_view_point.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : ruins
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_ruin.p.32.png
+			icon-image : icons/SJJB/png/tourist_ruin.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : archaeological
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_archaeological2.p.32.png
+			icon-image : icons/SJJB/png/tourist_archaeological2.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : memorial
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_memorial.p.32.png
+			icon-image : icons/SJJB/png/tourist_memorial.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : cave
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/poi_cave.p.32.png
+			icon-image : icons/SJJB/png/poi_cave.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
@@ -291,21 +307,21 @@ rules
 	target : guidepost
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_guidepost.p.32.png
+			icon-image : icons/SJJB/png/tourist_guidepost.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : watertower
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/water_tower.p.32.png
+			icon-image : icons/SJJB/png/water_tower.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 	
 	target : monument
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_monument.p.32.png
+			icon-image : icons/SJJB/png/tourist_monument.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
@@ -315,16 +331,13 @@ rules
 			icon-width : 16
 		for : barrier=gate
 			define
-				icon-image : icons/SJJB/png/barrier_gate.p.32.png
-		elsefor : barrier=kissing_gate
+				icon-image : icons/SJJB/png/barrier_gate.glow.32.png
+		elsefor : barrier=kissing_gate OR barrier=stile
 			define
-				icon-image : icons/SJJB/png/barrier_kissing_gate.p.32.png
-		elsefor : barrier=stile
-			define
-				icon-image : icons/SJJB/png/barrier_kissing_gate.p.32.png
+				icon-image : icons/SJJB/png/barrier_kissing_gate.glow.32.png
 		elsefor : barrier=lift_gate
 			define
-				icon-image : icons/SJJB/png/barrier_lift_gate.p.32.png
+				icon-image : icons/SJJB/png/barrier_lift_gate.glow.32.png
 		draw : icon
 
 // by using this statement we make sure only one label is written for POI with more than one tag
@@ -332,7 +345,7 @@ rules
 	target : POI text
 		define
 			min-zoom : 15
-			font-size : 13:10;16:20
+			font-size : 10
 			text-offset-vertical : 120%
 			text : name
 		for : natural=peak
@@ -340,7 +353,7 @@ rules
 				font-family : Cambria
 				font-style : italic
 				font-weight : bold
-				font-size : 13:10;15:16
+				font-size : 13:10;15:18
 				min-zoom : 13
 				text-color : black
 				text-max-width : 15
@@ -833,7 +846,7 @@ rules
 			min-zoom : 7
 			line-width : 7:1;10:1;11:2;13:2;15:2.5
 			line-offset : 12:0;13:3;14:4;15:4
-			line-offset-sides : both
+			line-offset-sides : left
 
 		if : * jerusalem trail
 			define
@@ -853,6 +866,9 @@ rules
 		elseif : * coast to coast
 			define
 				line-color : yellow
+		elseif : * haifa wadis
+			define
+				line-color : green
 		else
 			stop
 		draw : line
@@ -864,7 +880,7 @@ rules
 			min-zoom : 7
 			line-width : 7:1;10:1;11:2;13:2;15:2.5
 			line-offset : 12:0;13:3;14:4;15:4
-			line-offset-sides : both
+			line-offset-sides : left
 		if : * jerusalem trail
 			define
 				line-color : yellow
@@ -883,6 +899,9 @@ rules
 		elseif : * coast to coast
 			define
 				line-color : white black 10%
+		elseif : * haifa wadis
+			define
+				line-color : orange
 		else
 			stop
 		draw : line
@@ -988,7 +1007,7 @@ rules
 	target: contour*
 		define
 			line-color : #7f3300
-			line-opacity : 0.6
+			line-opacity : 0.8
 			curved : true
 		if : *major
 			define
@@ -1290,6 +1309,25 @@ rules
 			line-width : 0
 			fill-texture : Textures/plantation.png
 		draw : fill
+
+	target : Area *
+		define
+			line-style : solid
+			line-width : 1
+			line-color : orange
+			min-zoom : 9
+			fill-opacity : 50%
+		draw : line
+		if : * A
+			define
+				fill-color : orange white 40%
+		elseif : * B
+			define
+				fill-color : orange white 70%
+		else
+			 stop
+		draw : fill
+
 
 // residential and legend should be last
 	target : residential
