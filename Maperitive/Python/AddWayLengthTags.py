@@ -69,7 +69,7 @@ try:
 		if (osmWay.has_tag("landuse", "forest") or osmWay.has_tag("natural", "wood")):
 		    wayBBox= osmLayer.get_way_geometry(osmWay.id).bounding_box
 		    # Label placement is de according to the shape's width
-		    length = getLength4(wayBBox.min_x, (wayBBox.min_y + wayBBox.max_y), wayBBox.max_x, (wayBBox.min_y + wayBBox.max_y) )
+		    length = getLength4(wayBBox.min_x, (wayBBox.min_y + wayBBox.max_y)/2, wayBBox.max_x, (wayBBox.min_y + wayBBox.max_y)/2 )
 		    osmFile.write('  <node id="' + str(iId) + '" visible="true" lat="' + str((wayBBox.min_y + wayBBox.max_y)/2) + '" lon="' + str((wayBBox.min_x + wayBBox.max_x)/2) + '">' + "\n")
 		    for osmTag in ( "landuse", "natural", "name", "name:he", "name:en", "is_in" ):
 			if (osmWay.has_tag(osmTag)):
