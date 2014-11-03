@@ -73,41 +73,28 @@ load-source Cache\Forests.osm
 load-source Cache\ITMGrid.osm
 // =======================================================================
 
-// ======================================
-// === Alternatively, create the grid ===
-// ======================================
-//run-python file="Python\CreateITMGridOsm.py"
-// ======================================
-
 // ========================================================
 // === re-apply the rules to consider the added lengths ===
 // ========================================================
 apply-ruleset
 // ========================================================
 
-// ==========================================================================
-// === Load the contours file created using "Israel Hiking Setup.mscript" ===
-// ==========================================================================
-load-source Cache\Israel.contours
-// ==========================================================================
-
-// ==========================================
-// === Alternatively, create the contours ===
-// ==========================================
-// generate-contours interval=10
-// ===========================================
+// ===========================================================================
+// === Load the contours files created using "Israel Hiking Setup.mscript" ===
+// ===========================================================================
+load-source Cache\IsraelAboveSeaLevel.contours
+load-source Cache\IsraelAboveKinneretLevel.contours
+load-source Cache\IsraelBelowKinneretLevel.contours
 
 // ===============================================
 // === Load legend source file created by hand ===   
 // ===============================================
 load-source Cache\Legend.osm
-// ===============================================
 
 // =====================================================================
 // == Load the relief file created using "IsraelHikingSetup.mscript" ===
 // =====================================================================
 load-image file=Cache\relief_Hiking_Igor.png background=false
-// =====================================================================
 
 // ========================================
 // === Alternatively, create the relief ===
@@ -115,3 +102,8 @@ load-image file=Cache\relief_Hiking_Igor.png background=false
 // generate-relief-igor intensity=6 color=#808080 
 // ========================================
 
+// ===================================================
+// === Calculate the total length of hiking trails ===
+// ===================================================
+run-python file="Python\TrailsLength.py"
+// ===================================================

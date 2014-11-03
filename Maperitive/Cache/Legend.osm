@@ -15,7 +15,7 @@
     <tag k='name:en' v='Camp site' />
     <tag k='name:he' v='חניון לילה' />
     <tag k='tourism' v='camp_site' />
-  </node> 
+  </node>
   <node id='-3'  lon='35.5655' lat='32.8386' >
     <tag k='legend' v='point' />
     <tag k='name' v='תצפית' />
@@ -62,7 +62,7 @@
   <node id='-22' lon='35.5655' lat='32.7968' />
   <node id='-23' lon='35.5655' lat='32.7946' />
   <node id='-24' lon='35.5655' lat='32.7924' />
-  
+
   <!-- Second column nodes -->
   <node id='-51' lon='35.5705' lat='32.8430' >
     <tag k='amenity' v='place_of_worship' />
@@ -89,26 +89,26 @@
     <tag k='religion' v='jewish' />
   </node>
   <node id='-54' lon='35.5705' lat='32.8364' >
-	<tag k='amenity' v='place_of_worship' />
+    <tag k='amenity' v='place_of_worship' />
     <tag k='legend' v='point' />
     <tag k='name' v='בית תפילה בהאי' />
     <tag k='name:en' v='Bahai Place of Worship' />
     <tag k='name:he' v='בית תפילה בהאי' />
     <tag k='religion' v='Bahai' />
-  </node>  
+  </node>
   <node id='-55' lon='35.5705' lat='32.8342' >
-	<tag k='legend' v='point_missing' />
+    <tag k='legend' v='point_missing' />
     <tag k='name' v='שער' />
     <tag k='name:en' v='gate' />
     <tag k='name:he' v='שער' />
     <tag k='barrier' v='gate' />
   </node>
   <node id='-551' lon='35.5695' lat='32.8342' >
-	<tag k='legend' v='point' />
+    <tag k='legend' v='point' />
     <tag k='barrier' v='kissing_gate' />
   </node>
   <node id='-552' lon='35.5715' lat='32.8342' >
-	<tag k='legend' v='point' />
+    <tag k='legend' v='point' />
     <tag k='barrier' v='lift_gate' />
   </node>
   <node id='-56' lon='35.5705' lat='32.8320' >
@@ -129,14 +129,14 @@
   <node id='-65' lon='35.5705' lat='32.8122' />
   <node id='-66' lon='35.5705' lat='32.8100' />
   <node id='-67' lon='35.5705' lat='32.8078' />
-  <node id='-68' lon='35.5705' lat='32.8056' /> 
+  <node id='-68' lon='35.5705' lat='32.8056' />
   <node id='-69' lon='35.5705' lat='32.8034' />
   <node id='-70' lon='35.5705' lat='32.8012' />
   <node id='-71' lon='35.5705' lat='32.7990' />
   <node id='-72' lon='35.5705' lat='32.7968' />
   <node id='-73' lon='35.5705' lat='32.7946' />
   <node id='-74' lon='35.5705' lat='32.7924' />
-  
+
   <!-- Third column nodes -->
   <node id='-101' lon='35.5755' lat='32.8430' >
     <tag k='ele' v='1000' />
@@ -168,7 +168,7 @@
     <tag k='name:he' v='מאגר' />
   </node>
   <node id='-105' lon='35.5755' lat='32.8342' >
-	<tag k='legend' v='point_missing' />
+    <tag k='legend' v='point_missing' />
     <tag k='name' v='מגדל מים' />
     <tag k='name:en' v='Water Tower' />
     <tag k='name:he' v='מגדל מים' />
@@ -178,7 +178,7 @@
   <node id='-107' lon='35.5755' lat='32.8298' />
   <node id='-108' lon='35.5755' lat='32.8276' />
   <node id='-109' lon='35.5755' lat='32.8254' >
-  	<tag k='power' v='tower' />
+    <tag k='power' v='tower' />
   </node>
   <node id='-110' lon='35.5755' lat='32.8232' />
   <node id='-111' lon='35.5755' lat='32.8210' />
@@ -188,14 +188,14 @@
   <node id='-115' lon='35.5755' lat='32.8122' />
   <node id='-116' lon='35.5755' lat='32.8100' />
   <node id='-117' lon='35.5755' lat='32.8078' />
-  <node id='-118' lon='35.5755' lat='32.8056' /> 
+  <node id='-118' lon='35.5755' lat='32.8056' />
   <node id='-119' lon='35.5755' lat='32.8034' />
   <node id='-120' lon='35.5755' lat='32.8012' />
   <node id='-121' lon='35.5755' lat='32.7990' />
   <node id='-122' lon='35.5755' lat='32.7968' />
   <node id='-123' lon='35.5755' lat='32.7946' />
   <node id='-124' lon='35.5755' lat='32.7924' />
-  
+
   <!-- Fourth column nodes -->
   <node id='-151' lon='35.5805' lat='32.8430' >
     <tag k='historic' v='ruins' />
@@ -228,9 +228,9 @@
   <node id='-155' lon='35.5805' lat='32.8342' />
   <node id='-156' lon='35.5805' lat='32.8320' />
   <node id='-157' lon='35.5805' lat='32.8298' />
-  <node id='-158' lon='35.5805' lat='32.8276' />                          
+  <node id='-158' lon='35.5805' lat='32.8276' />
   <node id='-159' lon='35.5805' lat='32.8254' >
-	<tag k='power' v='station' />    
+    <tag k='power' v='station' />
   </node>
   <node id='-160' lon='35.5805' lat='32.8232' />
   <node id='-161' lon='35.5805' lat='32.8210' />
@@ -240,26 +240,26 @@
   <node id='-165' lon='35.5805' lat='32.8122' />
   <node id='-166' lon='35.5805' lat='32.8100' />
   <node id='-167' lon='35.5805' lat='32.8078' />
-  <node id='-168' lon='35.5805' lat='32.8056' />  
+  <node id='-168' lon='35.5805' lat='32.8056' />
   <node id='-169' lon='35.5805' lat='32.8034' />
   <node id='-170' lon='35.5805' lat='32.8012' />
   <node id='-171' lon='35.5805' lat='32.7990' />
   <node id='-172' lon='35.5805' lat='32.7968' />
   <node id='-173' lon='35.5805' lat='32.7946' />
   <node id='-174' lon='35.5805' lat='32.7924' />
-  
+
   <!-- Legend nodes -->
   <node id='-200' lon='35.5630' lat='32.8442' />
   <node id='-201' lon='35.5630' lat='32.7902' />
   <node id='-202' lon='35.5830' lat='32.7902' />
   <node id='-203' lon='35.5830' lat='32.8442' />
   <node id='-204' lon='35.5730' lat='32.8442' >
-	<tag k='legend' v='header' />
-	<tag k='name' v='מקרא' />
-	<tag k='name:he' v='מקרא' />
-	<tag k='name:en' v='Legend' />
+    <tag k='legend' v='header' />
+    <tag k='name' v='מקרא' />
+    <tag k='name:he' v='מקרא' />
+    <tag k='name:en' v='Legend' />
   </node>
-  
+
   <!-- First-second column ways -->
   <way id='-301'>
     <nd ref='-7' />
@@ -318,10 +318,10 @@
   <way id='-307'>
     <nd ref='-13' />
     <nd ref='-63' />
-	<nd ref='-64' />
-	<nd ref='-14' />
-	<nd ref='-13' />
-	<tag k='landuse' v='forest' />
+    <nd ref='-64' />
+    <nd ref='-14' />
+    <nd ref='-13' />
+    <tag k='landuse' v='forest' />
     <tag k='legend' v='area_missing' />
     <tag k='name' v='חורשה או יער' />
     <tag k='name:en' v='Forest' />
@@ -330,10 +330,10 @@
   <way id='-308'>
     <nd ref='-15' />
     <nd ref='-65' />
-	<nd ref='-66' />
-	<nd ref='-16' />
-	<nd ref='-15' />
-	<tag k='landuse' v='military' />
+    <nd ref='-66' />
+    <nd ref='-16' />
+    <nd ref='-15' />
+    <tag k='landuse' v='military' />
     <tag k='legend' v='area' />
     <tag k='name' v='שטח אש' />
     <tag k='name:en' v='Military zone' />
@@ -342,10 +342,10 @@
   <way id='-309'>
     <nd ref='-17' />
     <nd ref='-67' />
-	<nd ref='-68' />
-	<nd ref='-18' />
-	<nd ref='-17' />
-	<tag k='leisure' v='nature_reserve' />
+    <nd ref='-68' />
+    <nd ref='-18' />
+    <nd ref='-17' />
+    <tag k='leisure' v='nature_reserve' />
     <tag k='legend' v='area' />
     <tag k='name' v='שמורת טבע' />
     <tag k='name:en' v='Nature reserve' />
@@ -354,10 +354,10 @@
   <way id='-310'>
     <nd ref='-19' />
     <nd ref='-69' />
-	<nd ref='-70' />
-	<nd ref='-20' />
-	<nd ref='-19' />
-	<tag k='landuse' v='grass' />
+    <nd ref='-70' />
+    <nd ref='-20' />
+    <nd ref='-19' />
+    <tag k='landuse' v='grass' />
     <tag k='legend' v='area_missing' />
     <tag k='name' v='פארק או דשא' />
     <tag k='name:en' v='Park or Grass' />
@@ -366,21 +366,21 @@
   <way id='-311'>
     <nd ref='-21' />
     <nd ref='-71' />
-	<nd ref='-72' />
-	<nd ref='-22' />
-	<nd ref='-21' />
-	<tag k='landuse' v='field' />
+    <nd ref='-72' />
+    <nd ref='-22' />
+    <nd ref='-21' />
+    <tag k='landuse' v='field' />
     <tag k='legend' v='area_missing' />
     <tag k='name' v='שדה' />
     <tag k='name:en' v='Field' />
     <tag k='name:he' v='שדה' />
   </way>
-  
+
   <!-- Third-fourth column nodes -->
   <way id='-351'>
     <nd ref='-107' />
     <nd ref='-157' />
-	<tag k='waterway' v='river' />
+    <tag k='waterway' v='river' />
     <tag k='legend' v='line' />
     <tag k='name' v='נחל איתן' />
     <tag k='name:en' v='Stream' />
@@ -389,7 +389,7 @@
   <way id='-352'>
     <nd ref='-108' />
     <nd ref='-158' />
-	<tag k='waterway' v='wadi' />
+    <tag k='waterway' v='wadi' />
     <tag k='legend' v='line' />
     <tag k='name' v='נחל אכזב' />
     <tag k='name:en' v='Wadi' />
@@ -398,7 +398,7 @@
   <way id='-353'>
     <nd ref='-109' />
     <nd ref='-159' />
-	<tag k='railway' v='rail' />
+    <tag k='railway' v='rail' />
     <tag k='legend' v='line_missing' />
     <tag k='name' v='מסילת רכבת' />
     <tag k='name:en' v='Railway' />
@@ -407,7 +407,7 @@
   <way id='-354'>
     <nd ref='-110' />
     <nd ref='-160' />
-	<tag k='power' v='line' />
+    <tag k='power' v='line' />
     <tag k='legend' v='line_missing' />
     <tag k='name' v='קו חשמל' />
     <tag k='name:en' v='Power line' />
@@ -416,7 +416,7 @@
   <way id='-355'>
     <nd ref='-111' />
     <nd ref='-161' />
-	<tag k='barrier' v='fence' />
+    <tag k='barrier' v='fence' />
     <tag k='legend' v='line_missing' />
     <tag k='name' v='גדר' />
     <tag k='name:en' v='Fence' />
@@ -425,10 +425,10 @@
   <way id='-356'>
     <nd ref='-113' />
     <nd ref='-163' />
-	<nd ref='-164' />
-	<nd ref='-114' />
-	<nd ref='-113' />
-	<tag k='landuse' v='cemetery' />
+    <nd ref='-164' />
+    <nd ref='-114' />
+    <nd ref='-113' />
+    <tag k='landuse' v='cemetery' />
     <tag k='legend' v='area' />
     <tag k='name' v='בית קברות' />
     <tag k='name:en' v='Cemetery' />
@@ -437,10 +437,10 @@
   <way id='-357'>
     <nd ref='-115' />
     <nd ref='-165' />
-	<nd ref='-166' />
-	<nd ref='-116' />
-	<nd ref='-115' />
-	<tag k='landuse' v='quarry' />
+    <nd ref='-166' />
+    <nd ref='-116' />
+    <nd ref='-115' />
+    <tag k='landuse' v='quarry' />
     <tag k='legend' v='area' />
     <tag k='name' v='מחצבה' />
     <tag k='name:en' v='Quarry' />
@@ -449,10 +449,10 @@
   <way id='-358'>
     <nd ref='-117' />
     <nd ref='-167' />
-	<nd ref='-168' />
-	<nd ref='-118' />
-	<nd ref='-117' />
-	<tag k='natural' v='beach' />
+    <nd ref='-168' />
+    <nd ref='-118' />
+    <nd ref='-117' />
+    <tag k='natural' v='beach' />
     <tag k='legend' v='area' />
     <tag k='name' v='חוף' />
     <tag k='name:en' v='Beach' />
@@ -461,10 +461,10 @@
   <way id='-359'>
     <nd ref='-119' />
     <nd ref='-169' />
-	<nd ref='-170' />
-	<nd ref='-120' />
-	<nd ref='-119' />
-	<tag k='landuse' v='residential' />
+    <nd ref='-170' />
+    <nd ref='-120' />
+    <nd ref='-119' />
+    <tag k='landuse' v='residential' />
     <tag k='legend' v='area_missing' />
     <tag k='name' v='ישוב' />
     <tag k='name:en' v='Residential' />
@@ -473,24 +473,24 @@
   <way id='-360'>
     <nd ref='-121' />
     <nd ref='-171' />
-	<nd ref='-172' />
-	<nd ref='-122' />
-	<nd ref='-121' />
-	<tag k='landuse' v='orchard' />
+    <nd ref='-172' />
+    <nd ref='-122' />
+    <nd ref='-121' />
+    <tag k='landuse' v='orchard' />
     <tag k='legend' v='area_missing' />
     <tag k='name' v='מטעים או כרמים' />
     <tag k='name:en' v='Orchard or Vineyard' />
     <tag k='name:he' v='מטעים או כרמים' />
   </way>
-  
+
   <!-- Legend area -->
   <way id='-400'>
-	<nd ref='-200' />
+    <nd ref='-200' />
     <nd ref='-201' />
-	<nd ref='-202' />
-	<nd ref='-203' />
-	<nd ref='-204' />
-	<nd ref='-200' />
+    <nd ref='-202' />
+    <nd ref='-203' />
+    <nd ref='-204' />
+    <nd ref='-200' />
     <tag k='legend' v='background' />
   </way>
 </osm>
