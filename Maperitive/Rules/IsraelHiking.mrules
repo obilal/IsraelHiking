@@ -8,10 +8,11 @@
 
 // History:
 // --------
+// 2014-11-08: Improve trail visibility. Show two-coloured tracks, height for viewpoints. 
 // 2014-11-03: Added purple and orange trails, block and debris barriers, trees.
-//             Differentiated grade4 and grade5 tracks.
-//             Removed duplicate shields for dual-carriage roads. 
-//             Annotated the inner side of natural reserve boundaries.
+//		Differentiated grade4 and grade5 tracks.
+//		Removed duplicate shields for dual-carriage roads. 
+//		Annotated the inner side of natural reserve boundaries.
 // 2014-06-07: Added Area A, Area B, and Haifa Wadis Trail
 // 2014-05-23: Added fuel stations, regional trails on one side, changed to "glow" icons, refined text size, contour emphasis
 // 2014-04-14: Moved parking to areas, added bridge and tunnels, removed shields from roundabouts
@@ -24,7 +25,7 @@
 // 2013-05-11: Added Legend, fields, orchards, vineyard, quarry areas, guidepost
 //				quarry pattern was taken from http://subtlepatterns.com/.
 // 2013-04-27: Added archaeological, ruins, memorial, church, mosque, synagogue, power line towers, beach, picnic and parking names.
-//             Changed bicycle routes, Fixed natural reserve
+//		Changed bicycle routes, Fixed natural reserve
 // 2013-04-05: Added picnic, camp-site, parking, and coast to coast
 // 2013-03-15: Use ITM Grid Lines
 // 2013-03-02: Added Grid Lines
@@ -109,6 +110,10 @@ features
 		track minor : highway=track AND (tracktype=grade3 OR NOT tracktype)
 		track grade4 : highway=track AND tracktype=grade4
 		track grade5 : highway=track AND tracktype=grade5
+		track major colour2 : highway=track AND @isOneOf(tracktype, grade1, grade2) AND @isMatch(colour, ";")
+		track minor colour2 : highway=track AND (tracktype=grade3 OR NOT tracktype) AND @isMatch(colour, ";")
+		track grade4 colour2 : highway=track AND tracktype=grade4 AND @isMatch(colour, ";")
+		track grade5 colour2 : highway=track AND tracktype=grade5 AND @isMatch(colour, ";")
 		railway rail : railway=rail
 		power line : @isOneOf(power, line, minor_line)
 		stream : @isOneOf(waterway, stream, river, wadi)
@@ -374,7 +379,7 @@ rules
 			font-size : 10
 			text-offset-vertical : 120%
 			text : name
-		for : natural=peak
+		for : natural=peak OR tourism=viewpoint
 			define
 				font-family : Cambria
 				font-style : italic
@@ -515,8 +520,8 @@ rules
 				min-zoom : 7
 				line-color : red
 				text-color : red
-				// X values:	-31, -26, -24,  0, 24, 26, 31
-				// Y values:	-21, -16, -12,  0, 12, 16, 21
+				// X values:	-31, -26, -24, 0, 24, 26, 31
+				// Y values:	-21, -16, -12, 0, 12, 16, 21
 				shape-def    : p:white;pw:1.5;f:red;m:-26,-21;l:-31,-16,-31,16,-26,21,26,21,31,16,31,-16,26,-21,-26,-21;z;pw:0;f:white;m:-26,0;l:-24,12,0,16,24,12,26,0,24,-12,0,-16,-24,-12,-26,0;z
 				// Rounded rectangular corners, as in the line below hit a Maperitive bug
 				// shape-def : p:white;pw:1.5;f:red;m:-26,-21;a:5,5,-31,-16;l:-31,16;a:5,5,-26,21;l:26,21;a:5,5,31,16;l:31,-16;a:5,5,26,-21;l:-26,-21;z;pw:0;f:white;m:-26,0;l:-24,12,0,16,24,12,26,0,24,-12,0,-16,-24,-12,-26,0;z
@@ -537,9 +542,14 @@ rules
 				min-zoom : 11
 				line-color : #FFE66B
 		elseif : * minor
-			define
-				min-zoom : 14
-				line-color : white
+			for : colour
+				define
+					line-color : white
+					min-zoom : 13
+			else
+				define
+					min-zoom : 14
+					line-color : white
 
 		// Colors for Hiking Trail on roads
 		for : colour = red
@@ -732,8 +742,13 @@ rules
 		if : * minor
 			define
 				min-zoom : 11
-				max-zoom : 14
 				line-color : black
+			for : colour
+				define
+					max-zoom : 13
+			else
+				define
+					max-zoom : 14
 		elseif : * tertiary
 			define
 				min-zoom : 10
@@ -755,48 +770,99 @@ rules
 			border-style : none
 		draw : line
 
-
-	target : track *
+	target : track*
 		define
-			line-width : 13:1;14:2
-			line-offset : 13:0.75;15:1.5;16:2
+			line-width : 13:2;16:3
+			line-offset : 13:1.5;16:2.5
 			line-offset-sides : both
 			min-zoom : 13
-		if : *major
+		if : *major*
 			define
 				line-style : solid
-		elseif : *minor
+		elseif : *minor*
 			define
 				line-style : dash
-		elseif : *grade4
+		elseif : *grade4*
 			define
 				line-style : dashdot
-		elseif : *grade5
+		elseif : *grade5*
 			define
 				line-style : dashdotdot
-		for : colour = red
-			define
-				line-color : red
-		elsefor : colour = blue
-			define
-				line-color : blue
-		elsefor : colour = black
-			define
-				line-color : black
-		elsefor : colour = green
-			define
-				line-color : green
-		elsefor : colour = purple
-			define
-				line-color : purple
-		elsefor : colour = orange
-			define
-				line-color : orange
+		for : @isMatch(colour, ";")
+			// Two colours
+			if : *colour2
+				// Right colour
+				define
+					line-offset-sides : right
+				for : @isMatch(colour, "^red;")
+					define
+						line-color : red
+				elsefor : @isMatch(colour, "^blue;")
+					define
+						line-color : blue
+				elsefor : @isMatch(colour, "^black;")
+					define
+						line-color : black
+				elsefor : @isMatch(colour, "^green;")
+					define
+						line-color : green
+				elsefor : @isMatch(colour, "^purple;")
+					define
+						line-color : purple
+				elsefor : @isMatch(colour, "^orange;")
+					define
+						line-color : orange
+				else
+					stop
+			else
+				// Left colour
+				define
+					line-offset-sides : left
+				for : @isMatch(colour, ";red$")
+					define
+						line-color : red
+				elsefor : @isMatch(colour, ";blue$")
+					define
+						line-color : blue
+				elsefor : @isMatch(colour, ";black$")
+					define
+						line-color : black
+				elsefor : @isMatch(colour, ";green$")
+					define
+						line-color : green
+				elsefor : @isMatch(colour, ";purple$")
+					define
+						line-color : purple
+				elsefor : @isMatch(colour, ";orange$")
+					define
+						line-color : orange
+				else
+					stop
 		else
-			define
-				min-zoom : 14
-				line-color : black white 30%
-				line-width : 13:1;14:1.5
+			// Single colour or no colour
+			for : colour = red
+				define
+					line-color : red
+			elsefor : colour = blue
+				define
+					line-color : blue
+			elsefor : colour = black
+				define
+					line-color : black
+			elsefor : colour = green
+				define
+					line-color : green
+			elsefor : colour = purple
+				define
+					line-color : purple
+			elsefor : colour = orange
+				define
+					line-color : orange
+			else
+				define
+					min-zoom : 14
+					line-color : black white 40%
+					line-width : 13:1.2;16:2.5
 		for : bridge=yes
 			define
 				border-width : 150%
@@ -831,22 +897,23 @@ rules
 		for :  @isOneOf(colour, red, blue, black, green, purple, orange)
 			stop
 		else
+			// Show non-coloured tracks as long single dashes in zoom 13
 			define
 				min-zoom : 13
 				max-zoom : 14
-				line-color : black white 30%
-				line-width : 13:1;14:1.5
-				line-style : dash
+				line-color : black white 40%
+				line-width : 1.5
+				line-style : dashlong
 				border-style : none
 		draw : line
-
 
 	target : *path
 		// foot paths, steps, generic paths, and cycle paths
 		define
-			line-width : 12:1;13:1.5;14:2
+			line-width : 13:2;16:3
 			line-style : dash
 			min-zoom : 13
+		// Also set fill-color for steps
 		for : colour = red
 			define
 				line-color : red
@@ -874,9 +941,9 @@ rules
 		else
 			define
 				min-zoom : 14
-				line-color : black white 30%
-				fill-color : black white 30%
-				line-width : 13:1;14:1.5
+				line-color : black white 40%
+				fill-color : black white 40%
+				line-width : 13:1.5;16:2.5
 		if : cycle*
 			define
 				// cycle paths
@@ -884,12 +951,9 @@ rules
 		elseif : foot*
 			// foot paths
 			define
-				min-zoom : 13
-				line-width : 12:1;13:1.5;16:3
 				line-style : dot
 		elseif : steps*
 			define
-				min-zoom : 13
 				shape : custom
 				shape-def : -1,1, -1,-1, 1,-1, 1,1;Z
 				shape-spacing : 2
@@ -1435,7 +1499,7 @@ rules
 			define
 				fill-color : orange white 70%
 		else
-			 stop
+			stop
 		draw : fill
 
 
@@ -1485,4 +1549,4 @@ rules
 					text-offset-vertical : -50%
 			draw : text
 
-// vim: set autoindent expandtab:
+// vim: set autoindent noexpandtab:
