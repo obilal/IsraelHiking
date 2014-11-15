@@ -11,7 +11,7 @@ clear-map
 // ============================================
 // === Allow the use of relative file names ===
 // ============================================
-use-script-dir
+// use-script-dir
 // ============================================
 
 // ==============================================================
@@ -24,7 +24,7 @@ set-setting name=map.coastline.mode value=loose
 // === Load GeoFabric's Israel OSM map data snapshot downloaded from:        ===
 // === http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf ===
 // =============================================================================
-load-source israel-and-palestine-latest.osm.pbf
+load-source Cache\israel-and-palestine-latest.osm.pbf
 // =============================================================================
 // Temporarily hide the Israel OSM map data to speed up loading of subsequent sources
 set-source index=1 visible=false
@@ -54,37 +54,37 @@ geo-bounds-use-source
 // === Add way lengths to the OSM data sources and ===
 // === create Forest labels data in "Forests.osm"  ===
 // ===================================================
-run-python file="AddWayLengthTags.py"
+run-python file="Python\AddWayLengthTags.py"
 // ===================================================
 
 // =======================================================================
 // === Load the Forest labels data created using "AddWayLengthTags.py" ===
 // =======================================================================
-load-source Forests.osm
+load-source Cache\Forests.osm
 // =======================================================================
 
 // =======================================================================
 // === Load the Grid lines created using "Israel Hiking Setup.mscript" ===
 // =======================================================================
-load-source ITMGrid.osm
+load-source Cache\ITMGrid.osm
 // =======================================================================
 
 // ===========================================================================
 // === Load the contours files created using "Israel Hiking Setup.mscript" ===
 // ===========================================================================
-load-source IsraelAboveSeaLevel.contours
-load-source IsraelAboveKinneretLevel.contours
-load-source IsraelBelowKinneretLevel.contours
+load-source Cache\IsraelAboveSeaLevel.contours
+load-source Cache\IsraelAboveKinneretLevel.contours
+load-source Cache\IsraelBelowKinneretLevel.contours
 
 // ===============================================
 // === Load legend source file created by hand ===   
 // ===============================================
-load-source Legend.osm
+load-source Cache\Legend.osm
 
-// =======================================================================
-// == Load the relief file created using "Israel Hiking Setup.mscript" ===
-// =======================================================================
-load-image file=relief_Hiking_Igor.png background=false
+// =====================================================================
+// == Load the relief file created using "IsraelHikingSetup.mscript" ===
+// =====================================================================
+load-image file=Cache\relief_Hiking_Igor.png background=false
 
 // ========================================
 // === Alternatively, create the relief ===
@@ -95,7 +95,7 @@ load-image file=relief_Hiking_Igor.png background=false
 // ========================================
 // === Load the Israel Hiking Map rules ===
 // ========================================
-use-ruleset location="IsraelHiking.mrules"
+use-ruleset location="Rules\IsraelHiking.mrules"
 apply-ruleset
 // ========================================
 
@@ -106,5 +106,5 @@ set-source index=1 visible=true
 // ===================================================
 // === Calculate the total length of hiking trails ===
 // ===================================================
-run-python file="TrailsLength.py"
+run-python file="Python\TrailsLength.py"
 // ===================================================
