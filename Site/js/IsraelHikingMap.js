@@ -2,6 +2,17 @@
 var language;
 
 jQuery(document).ready(function($) {
+
+	$('#Permalink').click(function(event) {
+		event.stopPropagation();
+	});
+	$('#SearchText').popover({
+		placement: 'bottom', //placement of the popover. also can use top, bottom, left or right
+		html: 'true', //needed to show html of course
+		content: 'Content',
+		trigger: 'manual'
+	});
+
     language = "he";
     onChangeLanguage();
 
@@ -106,7 +117,6 @@ function onChangeLanguage() {
 
 function getHebrewText() {
     var text = '<div class="container">' +
-            /*'<h1>פרוייקט מפת הטיולים הפתוחה של ישראל</h1>' + */
             '<p> המפה הזו נוצרה בעזרת מידע מ- <a class="OSM" href="http://www.openstreetmap.org/" target="_blank">Open Street Map</a> שם ניתן לראות ולערוך אותו. כל שיש לעשות הוא לפתוח חשבון ולהתחיל למפות. שימו לב, המפה אינה מתעדכנת באופן מיידי.</p>' +
             '<h4> להלן כמה קישורים הקשורים לפרוייקט </h4>' +
             '<ul>' +
@@ -126,7 +136,6 @@ function getHebrewText() {
 
 function getEnglishText() {
     var text = '<div class="container">' +
-            /*'<h1>Israel Hiking Project</h1>' + */
             '<p> This map was generated from <a class="OSM">Open Street Map (OSM)</a> data where it can be viewed and edited. All you need to do is create an account and start mapping. Note that the changes will not affect this map instantly.</p>' +
             '<h4> Below are some links related to this project </h4>' +
             '<ul>' +
@@ -187,7 +196,7 @@ function getLinks() {
     }
 }
 
-/*
+/* this is location service, currently commented out...
  jQuery(window).load(function() {
  //map.on('locationfound', onLocationFound);
  var isMobile = (((window.matchMedia) && (window.matchMedia('(max-device-width: 960px)').matches)) || (screen.width <= 960));

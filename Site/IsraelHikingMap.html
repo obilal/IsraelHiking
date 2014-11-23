@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<title>Israel Hiking Map - OSM</title>
 		<link rel="icon" href="assets/favicon.png" />
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<link rel="stylesheet" href="css/IsraelHikingMap.css" />
 		<link rel="stylesheet" href="css/bootstrap.ltr.css" id="cssLink" media="screen">
 		<!--[if lte IE 8]>
@@ -56,32 +56,35 @@
 		</nav>
 		<!-- scripts -->
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+		<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
 		<script src="js/IsraelHikingMap.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/LastModified.js"></script>
+		<script src="js/Google.js"></script>
 		<script type="text/javascript">
-			var map = L.map('map', {zoomControl: false}).setView([31.773, 35.12], 13);
 			var lastModified = (typeof getLastModifiedDate == 'function') ? getLastModifiedDate() : document.lastModified;
 			var attribution = 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>, built with <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>. Last update: ' + lastModified;
-			L.tileLayer('Tiles/{z}/{x}/{y}.png', {
+			var israelhikingLayer = L.tileLayer('Tiles/{z}/{x}/{y}.png', {
 				attribution: attribution,
 				minZoom: 7,
 				maxZoom: 16
-			}).addTo(map);
+			});
+			var googleLayer = new L.Google();
+			var overlay = L.tileLayer('Tiles/{z}/{x}/{y}.png', {
+				attribution: attribution,
+				minZoom: 7,
+				maxZoom: 16
+			});
+			var map = L.map('map', {
+				zoomControl: false,
+				center: [31.773, 35.12],
+				zoom: 13,
+				layers: [israelhikingLayer, overlay]
+				});
+			map.addControl(new L.Control.Layers({'Israel Hiking map':israelhikingLayer, 'Google': googleLayer}, {'hiking trails': overlay}, {position: 'bottomleft'}));
 			var zoomcontrol = new L.Control.Zoom({position: 'bottomright'});
 			zoomcontrol.addTo(map);
-
-			$(".alert").alert();
-			$('#Permalink').click(function(event) {
-				event.stopPropagation();
-			});
-			$('#SearchText').popover({
-				placement: 'bottom', //placement of the popover. also can use top, bottom, left or right
-				html: 'true', //needed to show html of course
-				content: 'Content',
-				trigger: 'manual'
-			});
 		</script>
 	</body>
 </html>
