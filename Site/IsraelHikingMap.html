@@ -54,11 +54,16 @@
 				zoom: 13,
 				layers: [israelhikingLayer, overlay]
 				});
-			
-			map.addControl(new L.Control.Layers({
+			var layerSwitcher = new L.Control.Layers({
 				'Israel Hiking map':israelhikingLayer, 
 				'Google': googleLayer
-				}, {'hiking trails': overlay}));
+				}, {'hiking trails': overlay});
+			map.addControl(layerSwitcher);
+			
+			map.on('baselayerchange',function(e) {
+				// remove/add overlay according to base map
+				});
+
 			
 			// Scale
 			L.control.scale({imperial:false}).addTo(map);
@@ -69,9 +74,9 @@
 			L.control.locate().addTo(map);
 			
 			// file layer - allows to show gpx, kml files
-			var style = {color:'#8FD8D8', opacity: 0.8, dashArray: '4,8',fillOpacity: 0.6, weight: 4, clickable: false};
+			var style = {color:'#DA70D6', opacity: 0.8, fillOpacity: 0.6, weight: 3, clickable: false};
 			L.Control.FileLayerLoad.LABEL = '<img src="assets/folder_open.png" width="16">';
-			L.Control.fileLayerLoad({
+			var fileLayerControl = L.Control.fileLayerLoad({
 				fitBounds: true,
 				layerOptions: {
 					style: style,
@@ -80,7 +85,10 @@
 						}
 					},
 				}).addTo(map);
-			
+			fileLayerControl.loader.on('data:loaded', function (e) {
+			        // Add to map layer switcher
+			        layerSwitcher.addOverlay(e.layer, e.filename);
+			    });
 			// Search
 			L.Control.geocoder({
 				geocoder: L.Control.Geocoder.Nominatim({
