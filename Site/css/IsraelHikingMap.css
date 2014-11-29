@@ -7,16 +7,7 @@
 	overflow:hidden;
 }
 
-.info {
-	width: 36px;
-	height: 36px;
-	display: block;
-	text-align: center;
-	border-radius: 4px; 
-	line-height: 46px; 
-	text-decoration: none; 
-	color: rgb(17, 85, 17); 
-	background: rgb(255, 255, 255);
+.leaflet-info {
 	cursor: pointer;
 }
 

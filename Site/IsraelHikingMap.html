@@ -71,7 +71,7 @@
 			// Geolocation
 			L.control.locate().addTo(map);
 			// Edit
-			L.Control.EditOSM().addTo(map);
+			L.Control.editOSM().addTo(map);
 			// file layer - allows to show gpx, kml files
 			var style = {color:'#DA70D6', opacity: 0.8, fillOpacity: 0.6, weight: 3, clickable: false};
 			L.Control.FileLayerLoad.LABEL = '<img src="assets/folder_open.png" width="16">';
@@ -95,7 +95,7 @@
 				})
 			}).addTo(map);
 			// info
-			L.Control.Info().addTo(map);
+			L.Control.info().addTo(map);
 		</script>
 	</body>
 </html>

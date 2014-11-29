@@ -159,12 +159,12 @@ L.Control.FileLayerLoad = L.Control.extend({
 
     _initContainer: function () {
         // Create a button, and bind click on hidden file input
-        var zoomName = 'leaflet-control-filelayer leaflet-control-zoom',
-            barName = 'leaflet-bar',
-            partName = barName + '-part',
-            container = L.DomUtil.create('div', zoomName + ' ' + barName);
-        var link = L.DomUtil.create('a', zoomName + '-in ' + partName, container);
-        link.innerHTML = L.Control.FileLayerLoad.LABEL;
+		var container = L.DomUtil.create('div', 'leaflet-control-file  leaflet-control'),
+			button = L.DomUtil.create('div', 'leaflet-bar', container),
+            link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', button);
+		
+		
+        link.innerHTML = '<i class="fa fa-folder-open fa-lg"></i>';
         link.href = '#';
         link.title = L.Control.FileLayerLoad.TITLE;
 

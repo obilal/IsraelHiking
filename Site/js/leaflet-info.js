@@ -1,21 +1,19 @@
-﻿(function(e){if("function"==typeof bootstrap)bootstrap("leafletinfo",e);else if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else if("undefined"!=typeof ses){if(!ses.ok())return;ses.makeleafletInfo=e}else"undefined"!=typeof window?window.leafletInfo=e():global.leafletInfo=e()})(function(){var define,ses,bootstrap,module,exports;
-return (function(e,t,n){function i(n,s){if(!t[n]){if(!e[n]){var o=typeof require=="function"&&require;if(!s&&o)return o(n,!0);if(r)return r(n,!0);throw new Error("Cannot find module '"+n+"'")}var u=t[n]={exports:{}};e[n][0].call(u.exports,function(t){var r=e[n][1][t];return i(r?r:t)},u,u.exports)}return t[n].exports}var r=typeof require=="function"&&require;for(var s=0;s<n.length;s++)i(n[s]);return i})({1:[function(require,module,exports){
-module.exports = window.L.Control.extend({
-    options: { position: 'topright' },
+﻿L.Control.Info = L.Control.extend({
+    options: { position: 'topleft' },
 	_initialized: false,
 	
     _toggle: function() {
 		if (this._initialized == false)
 		{
-			$('.info').popover({
-				placement: 'left',
+			$('.leaflet-info').popover({
+				placement: 'right',
 				trigger: 'click',
 				content: this._getEnglishText(),
 				container: 'body',
 				html: true,
 			});
 			this._initialized = true;
-			$('.info').popover('show');
+			$('.leaflet-info').popover('show');
 		} 
     },
 	
@@ -61,26 +59,23 @@ module.exports = window.L.Control.extend({
 	},
 	
     onAdd: function(map) {
-        var container = L.DomUtil.create('div', 'leaflet-control-layers leaflet-control'),
-			div = L.DomUtil.create('div', 'info leaflet-bar', container);
+        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control'),
+            link = L.DomUtil.create('a', 'leaflet-info leaflet-bar-part leaflet-bar-part-single', container);
 
-		div.title = '<h4>Info - <a href="' + this._getLegendAddress() + '"> Go to legend</a><h4>';
-        div.innerHTML = '<i class="fa fa-info fa-2x"></i>';
+		link.title = '<h4>Info - <a href="' + this._getLegendAddress() + '"> Go to legend</a><h4>';
+        link.innerHTML = '<i class="fa fa-info fa-lg"></i>';
 
         L.DomEvent
-            .on(div, 'click', L.DomEvent.stopPropagation)
-            .on(div, 'mousedown', L.DomEvent.stopPropagation)
-            .on(div, 'dblclick', L.DomEvent.stopPropagation)
-            .on(div, 'click', L.DomEvent.preventDefault)
-            .on(div, 'click', L.bind(this._toggle, this), this);
+            .on(link, 'click', L.DomEvent.stopPropagation)
+            .on(link, 'mousedown', L.DomEvent.stopPropagation)
+            .on(link, 'dblclick', L.DomEvent.stopPropagation)
+            .on(link, 'click', L.DomEvent.preventDefault)
+            .on(link, 'click', L.bind(this._toggle, this), this);
 
         return container;
     }
 });
 
-},{}]},{},[1])(1)
-});
-
-L.Control.Info = function (options) {
-    return new leafletInfo();
+L.Control.info = function (options) {
+    return new L.Control.Info();
 };
