@@ -7,16 +7,21 @@
 	overflow:hidden;
 }
 
-#mainnavabr {
-	background-color: rgba(255,255,255,0.7) !important;
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#b2ffffff', endColorstr='#b2ffffff'); /* IE */
-    background-image: none;
-}
-
-.dropdown-menu {
-    min-width: 40em !important;
+.info {
+	width: 36px;
+	height: 36px;
+	display: block;
+	text-align: center;
+	border-radius: 4px; 
+	line-height: 46px; 
+	text-decoration: none; 
+	color: rgb(17, 85, 17); 
+	background: rgb(255, 255, 255);
+	cursor: pointer;
 }
 
 .popover {
-    min-width: 40em !important;
+  max-width: 600px;
+  width: auto;
 }
+

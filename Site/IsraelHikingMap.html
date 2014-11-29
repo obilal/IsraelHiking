@@ -5,12 +5,12 @@
 		<title>Israel Hiking Map - OSM</title>
 		<link rel="icon" href="assets/favicon.png" />
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/L.Control.Locate.min.css" />
+		<link rel="stylesheet" href="css/Control.Geocoder.css" />
+		<link rel="stylesheet" href="css/leaflet.label.css" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
 		<link rel="stylesheet" href="css/IsraelHikingMap.css" />
-		<link rel="stylesheet" href="css/bootstrap.ltr.css" id="cssLink" media="screen">
-		<link rel="stylesheet" href="css/L.Control.Locate.min.css">
-		<link rel="stylesheet" href="css/Control.Geocoder.css">
-		<link rel="stylesheet" href="css/leaflet.label.css">
-		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<!--[if lte IE 8]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
 		<link rel="stylesheet" href="css/L.Control.Locate.ie.min.css">
@@ -35,6 +35,8 @@
 		<script src="js/togeojson.js"></script>
 		<script src="js/leaflet-hash.js"></script>
 		<script src="js/leaflet.label.js"></script>
+		<script src="js/leaflet-edit-osm.js"></script>
+		<script src="js/leaflet-info.js"></script>
 		<script type="text/javascript">
 			var lastModified = (typeof getLastModifiedDate == 'function') ? getLastModifiedDate() : document.lastModified;
 			var attribution = 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>, built with <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>. Last update: ' + lastModified;
@@ -52,27 +54,24 @@
 			var map = L.map('map', {
 				center: [31.773, 35.12],
 				zoom: 13,
-				layers: [israelhikingLayer, overlay]
+				layers: [israelhikingLayer]
 				});
 			var layerSwitcher = new L.Control.Layers({
-				'Israel Hiking map':israelhikingLayer, 
+				'Israel Hiking map': israelhikingLayer, 
 				'Google': googleLayer
-				}, {'hiking trails': overlay});
-			map.addControl(layerSwitcher);
-			
-			map.on('baselayerchange',function(e) {
-				// remove/add overlay according to base map
 				});
-
 			
+			layerSwitcher.addOverlay(overlay, 'Hiking trails');
+			map.addControl(layerSwitcher);
+
 			// Scale
 			L.control.scale({imperial:false}).addTo(map);
 			// Hash
 			var hash = new L.Hash(map);
-			
 			// Geolocation
 			L.control.locate().addTo(map);
-			
+			// Edit
+			L.Control.EditOSM().addTo(map);
 			// file layer - allows to show gpx, kml files
 			var style = {color:'#DA70D6', opacity: 0.8, fillOpacity: 0.6, weight: 3, clickable: false};
 			L.Control.FileLayerLoad.LABEL = '<img src="assets/folder_open.png" width="16">';
@@ -95,6 +94,8 @@
 					geocodingQueryParams: { countrycodes: 'no' }
 				})
 			}).addTo(map);
+			// info
+			L.Control.Info().addTo(map);
 		</script>
 	</body>
 </html>
