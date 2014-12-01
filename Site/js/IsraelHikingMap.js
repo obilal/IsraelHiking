@@ -1,12 +1,13 @@
 $(document).ready(function($) {
 
-	// backwards compatibility
+	// backwards compatibility - convert to new style
     var zoom = parseInt(getURLParameter('zoom'));
     var lat = parseFloat(getURLParameter('lat'));
     var lng = parseFloat(getURLParameter('lng'));
-    if (zoom !== null && lng !== null && lat !== null)
+    if (zoom > 0 && lng > 0 && lat > 0)
     {
-        map.setView([lat, lng], zoom);
+		var href = window.location.pathname + "#" + zoom + "/" + lat + "/" + lng;
+		window.location.href = href;
     }
 });
 
