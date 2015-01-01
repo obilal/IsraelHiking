@@ -16,12 +16,17 @@ Ready-to-use maps are available for:
     * Place them in the _MAPS_ sub-directory of the OziExplorer installation.
     * Re-index the maps using _"MAP &rarr; Re-Index map files"_. 
 * [OpenMaps for iOS](http://izeize.com/openmaps/) (this is a guess since I don't have an iOS device)
-    * Select new type of map
-    * define a name for it (i.e IsraelHiking)
-    * enter the this URL: 
+    * Select "Settings" from the menu
+    * Select "Type" under "Map"
+    * Select "Edit"
+    * Scroll down
+    * Select "add new type"
+    * Define a name for it (i.e Israel Hiking)
+    * Enter the this URL:
 ```
     http://osm.org.il/IsraelHiking/Tiles/<zoom>/<x>/<y>.png
 ```
+    * Select "Save"
 
 
 ###Abstract
