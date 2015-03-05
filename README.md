@@ -22,10 +22,7 @@ Ready-to-use maps are available for:
     * Scroll down
     * Select "add new type"
     * Define a name for it (i.e Israel Hiking)
-    * Enter the this URL:
-```
-    http://osm.org.il/IsraelHiking/Tiles/<zoom>/<x>/<y>.png
-```
+    * Enter the this URL: `http://osm.org.il/IsraelHiking/Tiles/<zoom>/<x>/<y>.png`
     * Select "Save"
 
 
@@ -41,7 +38,7 @@ Maperitive runs on Windows, Linux and MAC.
 
 1. Download [Maperitive](http://maperitive.net/) and extract it to a desired location.
     On Linux and MacOS, Maperitive requires the use of [Mono](http://www.mono-project.com/Main_Page).
-2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/IsraelHiking/) (this site if you read this file in github).
+2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/IsraelHiking) (this site if you read this file in github).
     * click on the Files tab.
     * click on the Zip with the cloud and arrow to download all the files.
 3. The zip file will contain some unnecessary folders and files, the only folder needed from this zip is called Maperitive, copy it to the Maperitive installation folder.
@@ -50,7 +47,7 @@ Maperitive runs on Windows, Linux and MAC.
 5. Open Maperitive program, click _File &rarr; Run Script_ ... and choose _Scripts\IsraelHiking.mscript_
 6. Click _Tools &rarr; Generate Tiles_
 
-This should generate 256x256 png tile files inside Tiles directory and should take long (about 3 hours or more, I prefer to do it overnight, but you need to make sure you don't get out of memory).
+This should generate 256x256 png tile files inside the Tiles directory and would take a long time (about 3 hours or more, I prefer to do it overnight, but you need to make sure you don't get out of memory).
 
 ##MOBAC and Oruxmaps
 
