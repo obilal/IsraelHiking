@@ -580,7 +580,7 @@ rules
 			border-style : solid
 			border-width : 80%
 
-		for : tunnel=yes
+		for : tunnel
 			define
 				border-style : dot
 				line-style : dot
@@ -708,7 +708,7 @@ rules
 		if : $regex("(.* motorway)|(.* trunk)|(.* primary)|(.* secondary)")
 			stop
 		define
-			min-zoom : 15
+			min-zoom : 14.5
 			font-weight : bold
 			font-family : Verdana
 			text-max-width : 7
@@ -863,6 +863,10 @@ rules
 					min-zoom : 14
 					line-color : black white 40%
 					line-width : 13:1.2;16:2.5
+		for : tunnel
+			define
+				border-width : 80%
+				border-style : dot
 		for : bridge=yes
 			define
 				border-width : 150%
@@ -961,6 +965,13 @@ rules
 				shape-aspect : 3
 				line-style : none
 			draw : shape
+		for : tunnel
+			define
+				border-width : 80%
+				border-style : dot
+		for : bridge=yes
+			define
+				border-width : 150%
 		draw : line
 		define
 			font-size : 13:8;16:14
@@ -988,8 +999,8 @@ rules
 		define
 			line-style : dashlong
 			min-zoom : 7
-			line-width : 7:1;10:1;11:2;13:2;15:2.5
-			line-offset : 12:0;13:3;14:4;15:4
+			line-width : 7:1;10:1.5;11:3;13:4;15:5
+			line-offset : 7:1;10:1.5;11:3;13:4;15:6
 			line-offset-sides : left
 
 		if : * jerusalem trail
@@ -1022,8 +1033,8 @@ rules
 		define
 			line-style : solid
 			min-zoom : 7
-			line-width : 7:1;10:1;11:2;13:2;15:2.5
-			line-offset : 12:0;13:3;14:4;15:4
+			line-width : 7:1;10:1.5;11:3;13:4;15:5
+			line-offset : 7:1;10:1.5;11:3;13:4;15:6
 			line-offset-sides : left
 		if : * jerusalem trail
 			define
@@ -1045,7 +1056,7 @@ rules
 				line-color : white black 10%
 		elseif : * haifa wadis
 			define
-				line-color : orange
+				line-color : red
 		else
 			stop
 		draw : line
@@ -1208,9 +1219,10 @@ rules
 
 	target : nature reserve boundary
 		define
+			min-zoom : 9
 			line-color : #8DC56C black 20%
 			line-opacity : 0.9
-			line-width : 3
+			line-width : 9:1.5;13:2.5
 			line-style : dashdotdot
 		draw : line
 
@@ -1275,19 +1287,6 @@ rules
 			fill-opacity : 60%
 			line-style : none
 		draw : fill
-		define
-			min-zoom : 13
-			font-size : 12
-			text-color : red
-			font-weight : normal
-		// Hebrew preference for points & areas
-		for : @isMatch(name, "[א-ת]")
-			define
-				text : name
-		else
-			define
-				text : @any([[name:he]], [[name:en]], name)
-		draw : text
 
 	target : boundary*
 		// Avoid maritime borders
@@ -1339,7 +1338,7 @@ rules
 		else
 			draw : fill
 		define
-			min-zoom : 15
+			min-zoom : 14.1
 			font-size : 15:10;17:17
 			font-style : italic
 			font-weight : bold
@@ -1439,7 +1438,7 @@ rules
 			line-style : none
 			line-width : 0
 			min-zoom : 9
-			fill-texture : israelhiking/icons/quarry.png
+			fill-texture : israelhiking/Textures/quarry.png
 		draw : fill
 		define
 			min-zoom : 13
@@ -1460,7 +1459,7 @@ rules
 			line-style : none
 			line-width : 0
 			//fill-color : #E6DDD0
-			fill-texture : israelhiking/icons/field.png
+			fill-texture : israelhiking/Textures/field.png
 			fill-opacity : 0.3
 		draw : fill
 
@@ -1481,7 +1480,7 @@ rules
 		define
 			line-style : none
 			line-width : 0
-			fill-texture : israelhiking/icons/plantation.png
+			fill-texture : israelhiking/Textures/plantation.png
 		draw : fill
 
 	target : Area *
