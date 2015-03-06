@@ -82,19 +82,19 @@ try:
                 for osmMember in osmRelation.members:
                     if osmMember.ref_type==OsmReferenceType.WAY and osmLayer.has_way(osmMember.ref_id):
                         osmWay = osmLayer.way(osmMember.ref_id)
-                        # TODO: handle inner members and inner members that are also outer members of another relarion
+                        setClockwise(osmWay)
+                        # TODO!?: handle inner members and inner members that are also outer members of another relarion
                         if (osmMember.role == "" or osmMember.role == "outer"):
                             for osmTag in ("boundary", "leisure"):
                                 if (osmRelation.has_tag(osmTag) and not osmWay.has_tag(osmTag)):
                                     osmWay.set_tag(osmTag, osmRelation.get_tag(osmTag))
-                            setClockwise(osmWay)
 
             # Copy forest names from every multi-polygons to its outer ways
             for osmRelation in osmLayer.find_relations(lambda x : ( (x.has_tag("landuse", "forest") or x.has_tag("natural", "wood")) and (x.has_tag("name") or x.has_tag("name:he") or x.has_tag("name:en")))):
                 for osmMember in osmRelation.members:
                     if osmMember.ref_type==OsmReferenceType.WAY and osmLayer.has_way(osmMember.ref_id):
-                        osmWay = osmLayer.way(osmMember.ref_id)
                         if (osmMember.role == "" or osmMember.role == "outer"):
+                            osmWay = osmLayer.way(osmMember.ref_id)
                             for osmTag in ("name", "name:he", "name:en", "landuse", "natural", "is_in"):
                                 if (osmRelation.has_tag(osmTag) and not osmWay.has_tag(osmTag)):
                                     osmWay.set_tag(osmTag, osmRelation.get_tag(osmTag))

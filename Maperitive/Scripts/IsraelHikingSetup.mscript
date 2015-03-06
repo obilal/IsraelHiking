@@ -26,11 +26,13 @@ save-source Cache\IsraelAboveSeaLevel.contours
 
 generate-contours interval=10 max-ele=0 min-ele=-200 bounds=35.1366666666667,30.5131673177083,35.843515625,32.9775716145833
 save-source Cache\IsraelAboveKinneretLevel.contours
+
 // Contours below the Kinneret level and latitude
 // Bounds were locked to source Contours (SQLite):
 // 35.2763899739583,30.7922916666667,35.6541666666667,32.7020833333333
 
 generate-contours interval=10 max-ele=-210 bounds=35.2763899739583,30.7922916666667,35.6541666666667,32.7020833333333
 save-source Cache\IsraelBelowKinneretLevel.contours
+
 // create and save grid lines file
 run-python file="Python\CreateITMGridOsm.py"
