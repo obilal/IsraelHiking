@@ -68,6 +68,7 @@ features
 		water spring : natural=spring
 		water well : man_made=water_well
 		water cistern : man_made=cistern
+		water waterhole : natural=waterhole
 		picnic : @isOneOf(leisure, picnic, picnic_table) OR tourism=picnic_site
 		camp site : tourism=camp_site
 		view : tourism=viewpoint
@@ -1287,6 +1288,20 @@ rules
 			fill-opacity : 60%
 			line-style : none
 		draw : fill
+		for : legend=area
+			define
+				min-zoom : 13
+				font-size : 12
+				text-color : red
+				font-weight : normal
+			// Hebrew preference for points & areas
+			for : @isMatch(name, "[א-ת]")
+				define
+					text : name
+			else
+				define
+					text : @any([[name:he]], [[name:en]], name)
+			draw : text
 
 	target : boundary*
 		// Avoid maritime borders
