@@ -25,9 +25,9 @@
   </node>
   <node id='-4'  lon='35.5655' lat='32.8364' >
     <tag k='legend' v='point' />
-    <tag k='name' v='פיקניק' />
+    <tag k='name' v='חניון יום' />
     <tag k='name:en' v='Picnic' />
-    <tag k='name:he' v='פיקניק' />
+    <tag k='name:he' v='חניון יום' />
     <tag k='tourism' v='picnic_site' />
   </node>
   <node id='-5'  lon='35.5655' lat='32.8342' >
@@ -163,9 +163,9 @@
   <node id='-104' lon='35.5755' lat='32.8364' >
     <tag k='legend' v='point' />
     <tag k='man_made' v='cistern' />
-    <tag k='name' v='מאגר' />
+    <tag k='name' v='בור מים או גב' />
     <tag k='name:en' v='Cistern' />
-    <tag k='name:he' v='מאגר' />
+    <tag k='name:he' v='בור מים או גב' />
   </node>
   <node id='-105' lon='35.5755' lat='32.8342' >
     <tag k='legend' v='point_missing' />
@@ -335,9 +335,9 @@
     <nd ref='-15' />
     <tag k='landuse' v='military' />
     <tag k='legend' v='area' />
-    <tag k='name' v='שטח אש' />
+    <tag k='name' v='שטח צבאי' />
     <tag k='name:en' v='Military zone' />
-    <tag k='name:he' v='שטח אש' />
+    <tag k='name:he' v='שטח צבאי' />
   </way>
   <way id='-309'>
     <nd ref='-17' />
@@ -347,9 +347,10 @@
     <nd ref='-17' />
     <tag k='leisure' v='nature_reserve' />
     <tag k='legend' v='area' />
-    <tag k='name' v='שמורת טבע' />
+    <tag k='clockwise' v='yes' />
+    <tag k='name' v='גן לאומי או שמורת טבע' />
     <tag k='name:en' v='Nature reserve' />
-    <tag k='name:he' v='שמורת טבע' />
+    <tag k='name:he' v='גן לאומי או שמורת טבע' />
   </way>
   <way id='-310'>
     <nd ref='-19' />
