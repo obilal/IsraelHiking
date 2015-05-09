@@ -37,6 +37,15 @@
 		<script src="js/leaflet.label.js"></script>
 		<script src="js/leaflet-edit-osm.js"></script>
 		<script src="js/leaflet-info.js"></script>
+		<!-- Routing -->
+		<script src="js/utils/LineUtil.Snapping.js"></script>
+		<script src="js/utils/Marker.Snapping.js"></script>
+		<script src="js/osmtogeojson.js"></script>
+		<script src="js/L.Routing.js"></script>
+		<script src="js/L.Routing.Storage.js"></script>
+		<script src="js/L.Routing.Draw.js"></script>
+		<script src="js/L.Routing.Edit.js"></script>
+		<script src="js/L.Control.Routing.js"></script>
 		<script type="text/javascript">
 			var lastModified = (typeof getLastModifiedDate == 'function') ? getLastModifiedDate() : document.lastModified;
 			var attribution = 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>, built with <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>. Last update: ' + lastModified;
@@ -96,6 +105,9 @@
 			}).addTo(map);
 			// info
 			L.Control.info().addTo(map);
+			
+			// routing
+			L.Control.routing().addTo(map);
 		</script>
 	</body>
 </html>
