@@ -52,6 +52,23 @@ def setClockwise(way) :
                 node0 = node1
             osmLayer.way(way.id).set_tag("clockwise", "yes" if length2 < 0 else "no")
 
+def escapeXML(text) :
+    # Special Character   Escape Sequence Purpose  
+    # &                   &amp;           Ampersand sign 
+    # '                   &apos;          Single quote 
+    # "                   &quot;          Double quote
+    # >                   &gt;            Greater than 
+    # <                   &lt;            Less than
+    return text\
+        .replace("&", "&amp;")\
+        .replace("'", "&apos;")\
+        .replace('"', "&quot;")\
+        .replace(">", "&gt;")\
+        .replace("<", "&lt;")
+
+App.log('script-dir: ' + App.script_dir)
+App.run_command('change-dir dir="' + App.script_dir +'"')
+
 App.collect_garbage()
 
 # Create an osm file with forest name info
@@ -109,7 +126,7 @@ try:
                     for osmTag in ( "landuse", "natural", "name", "name:he", "name:en", "is_in" ):
                         if (osmWay.has_tag(osmTag)):
                             try:
-                                osmFile.write('    <tag k="' + osmTag + '" v="' +  string.replace(osmWay.get_tag(osmTag), '"', '&#34;').encode('utf-8') + '"/>' + "\n")
+                                osmFile.write('    <tag k="' + osmTag + '" v="' +  escapeXML(osmWay.get_tag(osmTag)).encode('utf-8') + '"/>' + "\n")
                             except:
                                 print ("Error: ", sys.exc_info()[0]," when writing ", osmTag,  "=", osmWay.get_tag(osmTag))
                                 raise
