@@ -10,7 +10,6 @@
 				trigger: 'click',
 				content: this._getEnglishText(),
 				container: 'body',
-				template: '<div class="popover popover-info"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>',
 				html: true,
 			});
 			this._initialized = true;
@@ -61,7 +60,7 @@
 	
     onAdd: function(map) {
         var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control'),
-            link = L.DomUtil.create('a', 'leaflet-info cursor-pointer leaflet-bar-part leaflet-bar-part-single', container);
+            link = L.DomUtil.create('a', 'leaflet-info leaflet-bar-part leaflet-bar-part-single', container);
 
 		link.title = '<h4>Info - <a href="' + this._getLegendAddress() + '"> Go to legend</a><h4>';
         link.innerHTML = '<i class="fa fa-info fa-lg"></i>';
