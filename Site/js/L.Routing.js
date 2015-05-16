@@ -10,7 +10,7 @@
  * @todo use L.Class.extend instead?
 */
 
-L.Routing = L.Control.extend({
+L.Routing = L.Class.extend({
 
   // INCLUDES
   includes: [L.Mixin.Events]
@@ -22,8 +22,8 @@ L.Routing = L.Control.extend({
 
   // OPTIONS
   ,options: {
-    position: 'topleft'
-    ,icons: {
+    //position: 'topleft'
+    icons: {
       start: new L.Icon.Default()
       ,end: new L.Icon.Default()
       ,normal: new L.Icon.Default()
@@ -56,7 +56,7 @@ L.Routing = L.Control.extend({
   }
 
   /**
-   * Called when controller is added to map
+   * Should be called when map instance is available
    *
    * @access public
    *
@@ -76,9 +76,6 @@ L.Routing = L.Control.extend({
     this._waypoints._first = null;
     this._waypoints._last = null;
 
-    //L.DomUtil.disableTextSelection();
-    //this._tooltip = new L.Tooltip(this._map);
-    //this._tooltip.updateContent({ text: L.drawLocal.draw.marker.tooltip.start });
     L.DomEvent.addListener(this._container, 'keyup', this._keyupListener, this);
 
     this._draw = new L.Routing.Draw(this, {
@@ -99,10 +96,6 @@ L.Routing = L.Control.extend({
     this._edit.on('segment:mouseout' , this._fireSegmentEvent, this);
     this._edit.on('segment:dragstart', this._fireSegmentEvent, this);
     this._edit.on('segment:dragend'  , this._fireSegmentEvent, this);
-
-    var container = L.DomUtil.create('div', 'leaflet-routing');
-
-    return container;
   }
 
   /**

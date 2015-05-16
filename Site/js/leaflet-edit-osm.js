@@ -4,8 +4,8 @@ L.Control.EditOSM = L.Control.extend({
     _edit: function() {
         var center = this._map.getCenter();
         var z = this._map.getZoom();
-        window.open('http://www.openstreetmap.org/edit?' + 'zoom=' + z +
-            '&editor=id' + '&lat=' + center.lat + '&lon=' + center.lng);
+		window.open('http://www.openstreetmap.org/edit?editor=id#' +
+			'background=custom:http://osm.org.il/IsraelHiking/Tiles/{z}/{x}/{y}.png&map=' + z + "/" + center.lat + "/" + center.lng);
     },
 
     onAdd: function(map) {
