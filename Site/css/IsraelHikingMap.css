@@ -7,37 +7,38 @@
 	overflow:hidden;
 }
 
-.leaflet-info {
+.cursor-pointer {
 	cursor: pointer;
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (min-width : 480px) {
-	.popover {
+	.popover-info {
 	  max-width: 250px;
 	}
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-	.popover {
+	.popover-info {
 	  max-width: 600px;
 	}
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-	.popover {
+	.popover-info {
 	  max-width: 600px;
 	}
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-	.popover {
+	.popover-info {
 	  max-width: 600px;
 	}
 }
 
-
-
+.popover-routing {
+  width: 100px;
+}
