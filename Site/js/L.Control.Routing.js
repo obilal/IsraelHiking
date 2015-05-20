@@ -43,7 +43,7 @@
 	,_getPopoverContent: function () {
 		return  '<div>' + 
 					'<a id="download-gpx" download="israelHiking.gpx"><i class="fa fa-download">.gpx</i></a><br/>' +
-					'<a id="download-kml" download="israelHiking.kml"><i class="fa fa-download">.klm</i></a><br/>' +
+					'<a id="download-kml" download="israelHiking.kml"><i class="fa fa-download">.kml</i></a><br/>' +
 					'<a id="download-geojson" download="israelHiking.geoJaon"><i class="fa fa-download">.geoJson</i></a><br/>' +
 				'</div>'
 	}

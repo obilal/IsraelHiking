@@ -13,7 +13,7 @@ L.Control.EditOSM = L.Control.extend({
             link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', container);
 
         link.href = '#';
-        link.innerHTML = '<i class="fa fa-pencil fa-lg"></i>';
+        link.innerHTML = '<img src="assets/edit-map.png" />';
         link.title = 'Edit in OpenStreetMap';
 
         L.DomEvent
