@@ -66,8 +66,6 @@ def escapeXML(text) :
         .replace(">", "&gt;")\
         .replace("<", "&lt;")
 
-App.log('script-dir: ' + App.script_dir)
-App.run_command('change-dir dir="' + App.script_dir +'"')
 
 App.collect_garbage()
 
