@@ -1619,7 +1619,7 @@ rules
 		draw : fill
 
 
-// residential and legend should be last
+// residential should be last
 	target : residential
 		define
 			line-style : none
