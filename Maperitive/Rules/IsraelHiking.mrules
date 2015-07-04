@@ -232,6 +232,9 @@ rules
 			min-zoom : 15
 			icon-image : icons/SJJB/png/transport_parking.n.32.png
 			icon-width : 14
+		for : legend
+			define
+				min-zoom : 13
 		draw : icon
 
 	target : fuel
@@ -370,6 +373,10 @@ rules
 			define
 				icon-image : icons/SJJB/png/barrier_cattle_grid.glow.32.png
 				icon-width: 24
+		for : legend
+			define
+				min-zoom : 13
+				icon-width : 18
 		draw : icon
 
 // by using this statement we make sure only one label is written for POI with more than one tag
@@ -407,10 +414,21 @@ rules
 					text-align-horizontal : center
 					text-offset-vertical : -70%
 					text-offset-horizontal : 0
+				for : legend
+					define
+						font-size : 13:8;16:18
+						text-offset-vertical : 175%
 		elsefor : natural=spring OR man_made=water_well OR man_made=cistern
 			define
 				text-color : blue
 				min-zoom : 13
+		for : legend
+			define
+				min-zoom : 13
+				font-family : Arial
+				font-style : normal
+				font-weight : normal
+				font-size : 13:8;16:18
 
 		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
@@ -468,6 +486,9 @@ rules
 			curved : false
 			min-zoom : 15
 			line-width : 1
+		for : legend
+			define
+				min-zoom : 13
 		draw : line
 		define
 			shape : circle
@@ -896,6 +917,14 @@ rules
 			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
 				define
 					text-direction : rtl
+		for : legend
+			define
+				min-zoom : 13
+				font-family : Arial
+				font-style : normal
+				font-weight : normal
+				font-size : 13:8;16:18
+				text-offset-vertical : 100%
 		draw : text
 
 	target : track *
@@ -994,6 +1023,14 @@ rules
 			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
 				define
 					text-direction : rtl
+		for : legend
+			define
+				min-zoom : 13
+				font-family : Arial
+				font-style : normal
+				font-weight : normal
+				font-size : 13:8;16:18
+				text-offset-vertical : 100%
 		draw : text
 
 	target : hiking regional *
@@ -1122,6 +1159,15 @@ rules
 			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
 				define
 					text-direction : rtl
+		for : legend
+			define
+				min-zoom : 13
+				font-family : Arial
+				font-style : normal
+				font-weight : normal
+				font-size : 13:8;16:18
+				text-offset-vertical : 100%
+
 		draw : text
 
 	target : cliff
@@ -1160,6 +1206,36 @@ rules
 			shape-size : 5
 		draw : shape
 
+	target : legend
+		define
+			min-zoom : 13
+		for : legend=background
+			define
+				line-style : none
+				line-width : 1
+				fill-color : #F0FFFF
+				painting-cycle : 580
+			draw : fill
+		else
+			define
+				font-family : Arial
+				font-style : normal
+				font-weight : normal
+				font-size : 13:8;16:18
+				text : name
+				text-align-horizontal : center
+				text-align-vertical : center
+				text-direction : rtl
+			for : legend=line_missing
+				define
+					text-offset-vertical : 100%
+			elsefor : legend=header
+				define
+					font-size : 13:18;14:26;16:48
+					text-halo-width : 30%
+					text-halo-opacity : 0.75
+			draw : text
+
 	target: contour*
 		define
 			line-color : #7f3300
@@ -1197,6 +1273,7 @@ rules
 			font-size : 14
 			min-zoom : 13
 			text-opacity : 80%
+			painting-cycle : 580
 		draw : text
 
 	target : grid
@@ -1216,6 +1293,7 @@ rules
 			line-color : black
 			curved : true
 			line-opacity : 80%
+			painting-cycle : 570
 		draw : line
 
 	target : nature reserve boundary
@@ -1287,6 +1365,9 @@ rules
 			fill-hatch-opacity : 0
 			fill-opacity : 60%
 			line-style : none
+		for : legend
+			define
+				painting-cycle : 590
 		draw : fill
 		for : legend=area
 			define
@@ -1372,6 +1453,9 @@ rules
 			line-style : none
 			line-width : 1
 			fill-color : #CCCCCC
+		for : legend
+			define
+				painting-cycle : 590
 		draw : fill
 		define
 			min-zoom : 13
@@ -1423,6 +1507,9 @@ rules
 			min-zoom : 9
 			// fill-color : #8DC56C white 60%
 			fill-texture : Textures/ForestNoiseLight.jpg
+		for : legend
+			define
+				painting-cycle : 590
 		draw : fill
 
 	target : beach
@@ -1433,6 +1520,9 @@ rules
 			line-style : none
 			line-width : 1
 			fill-color : #FFEC8B
+		for : legend
+			define
+				painting-cycle : 590
 		draw : fill
 		define
 			min-zoom : 13
@@ -1453,7 +1543,10 @@ rules
 			line-style : none
 			line-width : 0
 			min-zoom : 9
-			fill-texture : israelhiking/Textures/quarry.png
+			fill-texture : Textures/quarry.png
+		for : legend
+			define
+				painting-cycle : 590
 		draw : fill
 		define
 			min-zoom : 13
@@ -1474,8 +1567,11 @@ rules
 			line-style : none
 			line-width : 0
 			//fill-color : #E6DDD0
-			fill-texture : israelhiking/Textures/field.png
+			fill-texture : Textures/field.png
 			fill-opacity : 0.3
+		for : legend
+			define
+				painting-cycle : 590
 		draw : fill
 
 	target : grass
@@ -1483,6 +1579,9 @@ rules
 			line-style : none
 			line-width : 1
 			fill-color : #E9FDE0
+		for : legend
+			define
+				painting-cycle : 590
 		draw : fill
 		define
 			line-style : none
@@ -1495,7 +1594,10 @@ rules
 		define
 			line-style : none
 			line-width : 0
-			fill-texture : israelhiking/Textures/plantation.png
+			fill-texture : Textures/plantation.png
+		for : legend
+			define
+				painting-cycle : 590
 		draw : fill
 
 	target : Area *
@@ -1523,6 +1625,9 @@ rules
 			line-style : none
 			line-width : 1
 			fill-color : #DCDCDC white 30%
+		for : legend
+			define
+				painting-cycle : 590
 		draw : fill
 		define
 			min-zoom : 17
@@ -1534,33 +1639,5 @@ rules
 			define
 				text : @any([[name:he]], [[name:en]], name)
 		draw : text
-
-	target : legend
-		for : legend=background
-			define
-				min-zoom : 8
-				line-style : none
-				line-width : 1
-				fill-color : #F0FFFF
-			draw : fill
-		else
-			define
-				min-zoom : 13
-				text : name
-				text-align-horizontal : center
-				text-align-vertical : center
-				font-size : 14:10;20:20
-				text-direction : rtl
-			for : legend=line_missing
-				define
-					text-offset-vertical : 100%
-			for : legend=header
-				define
-					min-zoom : 8
-					font-size : 8:12;10:16;14:20
-					text-halo-width : 30%
-					text-halo-opacity : 0.75
-					text-offset-vertical : -50%
-			draw : text
 
 // vim: set autoindent noexpandtab:
